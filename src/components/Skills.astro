@@ -1,0 +1,36 @@
+---
+const skillGroups = [
+	{
+		title: 'Languages',
+		items: ['TypeScript', 'Swift', 'Kotlin', 'Python']
+	},
+	{
+		title: 'Frameworks',
+		items: ['TensorFlow', 'React Native', 'React', 'Next.js', 'Node.js', 'terraform']
+	},
+	{
+		title: 'Cloud & Data',
+		items: ['Google Cloud', 'Azure', 'Docker', 'PostgreSQL', 'Redis']
+	},
+	{
+		title: 'Engineering Practices',
+		items: ['Observability', 'CI/CD', 'Mentoring', 'Agile', 'XP']
+	}
+];
+---
+
+<section id="skills" class="mx-auto w-full max-w-5xl scroll-mt-24 px-6 py-14">
+	<h2 class="text-2xl font-bold text-white md:text-3xl">Skills</h2>
+	<div class="mt-7 grid gap-4 md:grid-cols-2">
+		{
+			skillGroups.map((group) => (
+				<div class="rounded-lg border border-neutral-800 bg-neutral-900/40 p-5">
+					<h3 class="text-sm font-semibold uppercase tracking-wide text-neutral-200">{group.title}</h3>
+					<ul class="mt-4 flex flex-wrap gap-2">
+						{group.items.map((item) => <li class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">{item}</li>)}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</section>
