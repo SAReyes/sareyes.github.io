@@ -25,7 +25,7 @@ const screenshots = [
 		label: 'Live Activity'
 	},
 	{
-		src: '/ebro-bus/iphone-screenshot-3.jpg',
+		src: '/ebro-bus/iphone-screenshot-5.jpg',
 		alt: 'Ebro Bus Dynamic Island screen showing bus arrival times',
 		label: 'Dynamic Island'
 	}
@@ -88,11 +88,11 @@ const screenshots = [
 				</p>
 
 				<div
-					class="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [scrollbar-width:thin]"
+					class="mt-10 flex flex-nowrap snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain scroll-pl-6 scroll-pr-6 pb-4 [scrollbar-width:thin] [-webkit-overflow-scrolling:touch]"
 				>
 					{
 						screenshots.map(({ src, alt, label }) => (
-							<figure class="w-[min(280px,85vw)] shrink-0 snap-center md:w-auto">
+							<figure class="w-[min(280px,85vw)] shrink-0 snap-center md:w-72">
 								<div class="overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-950 shadow-xl shadow-black/50 ring-1 ring-white/5">
 									<img src={src} alt={alt} class="block w-full" loading="lazy" decoding="async" />
 								</div>
