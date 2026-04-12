@@ -1,0 +1,42 @@
+---
+const GITHUB_URL = 'https://github.com/SAReyes';
+const TWITTER_URL = 'https://twitter.com/SAReyes_';
+
+interface Props {
+	variant?: 'button' | 'inline';
+	/** 'short' shows GitHub / Twitter; 'handles' shows github.com/... style URLs */
+	labelStyle?: 'short' | 'handles';
+	class?: string;
+}
+
+const {
+	variant = 'button',
+	labelStyle = 'short',
+	class: className = ''
+} = Astro.props;
+
+const buttonBaseClass =
+	'inline-flex items-center rounded-md border border-neutral-700 px-4 py-2 text-sm text-neutral-100 transition hover:border-cyan-400 hover:text-cyan-300';
+
+const inlineClass =
+	'text-cyan-300 underline-offset-4 transition hover:text-cyan-200 hover:underline';
+---
+
+<div class:list={['flex flex-wrap items-center gap-4', className]}>
+	<a
+		href={GITHUB_URL}
+		target="_blank"
+		rel="noopener noreferrer"
+		class:list={[variant === 'button' ? buttonBaseClass : inlineClass]}
+	>
+		{labelStyle === 'short' ? 'GitHub' : 'github.com/SAReyes'}
+	</a>
+	<a
+		href={TWITTER_URL}
+		target="_blank"
+		rel="noopener noreferrer"
+		class:list={[variant === 'button' ? buttonBaseClass : inlineClass]}
+	>
+		{labelStyle === 'short' ? 'Twitter' : 'twitter.com/SAReyes_'}
+	</a>
+</div>
