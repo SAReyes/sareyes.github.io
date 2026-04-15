@@ -14,6 +14,9 @@ importers:
       astro:
         specifier: ^6.0.6
         version: 6.0.6(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.59.0)
+      simple-icons:
+        specifier: ^16.16.0
+        version: 16.16.0
       tailwindcss:
         specifier: ^4.2.2
         version: 4.2.2
@@ -1364,6 +1367,10 @@ packages:
   shiki@4.0.2:
     resolution: {integrity: sha512-eAVKTMedR5ckPo4xne/PjYQYrU3qx78gtJZ+sHlXEg5IHhhoQhMfZVzetTYuaJS0L2Ef3AcCRzCHV8T0WI6nIQ==}
     engines: {node: '>=20'}
+
+  simple-icons@16.16.0:
+    resolution: {integrity: sha512-H+Z29a0TrCw6mrG42V2aqHQaKdJCT87x5aojLlPiIXOf1lpMqnKFAR/jP5xkI5hLrVTCBWs33e9sOtyNWqCx1A==}
+    engines: {node: '>=0.12.18'}
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
@@ -3155,6 +3162,8 @@ snapshots:
       '@shikijs/types': 4.0.2
       '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
+
+  simple-icons@16.16.0: {}
 
   sisteransi@1.0.5: {}
 
