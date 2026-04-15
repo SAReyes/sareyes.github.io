@@ -1,38 +1,88 @@
+---
+type ProjectLink = {
+	href: string;
+	label: string;
+	variant: 'primary' | 'secondary';
+	icon?: string;
+	external?: boolean;
+};
+
+type Project = {
+	title: string;
+	description: string;
+	links: ProjectLink[];
+};
+
+const projects: Project[] = [
+	{
+		title: 'Ebro Bus',
+		description:
+			"Real-time bus waiting times for Zaragoza, built on the city's open transport data. Free on the App Store — home screen, map, favorites, and Live Activities in one place.",
+		links: [
+			{
+				href: 'https://apps.apple.com/es/app/ebrobus/id6757496090',
+				label: 'App Store',
+				variant: 'primary',
+				icon: '/icons/apple.svg',
+				external: true
+			},
+			{ href: '/ebro-bus', label: 'Learn more', variant: 'secondary' },
+			{ href: '/ebro-bus#privacy', label: 'Privacy Policy', variant: 'secondary' }
+		]
+	},
+	{
+		title: 'Holo Emotes',
+		description:
+			'Hololive emote catalog across branches and generations — browse by talent, then batch-export packs for different platforms so the same emotes travel with you.',
+		links: [
+			{
+				href: 'https://holoemotes.com',
+				label: 'Visit holoemotes.com',
+				variant: 'primary',
+				external: true
+			}
+		]
+	}
+];
+
+const linkBase =
+	'inline-flex items-center rounded-md border px-4 py-2 text-sm transition hover:border-cyan-400';
+---
+
 <section id="projects" class="mx-auto w-full max-w-5xl scroll-mt-24 px-6 py-14">
 	<h2 class="text-2xl font-bold text-white md:text-3xl">Projects</h2>
 	<p class="mt-2 max-w-2xl text-sm text-neutral-400">
-	Things I&apos;m building or shipping — mostly focused on useful, everyday tools.
+		Things I&apos;m building or shipping — mostly focused on useful, everyday tools.
 	</p>
-	<div class="mt-8">
-		<article class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 md:p-8">
-			<h3 class="text-lg font-semibold text-white md:text-xl">Ebro Bus</h3>
-		<p class="mt-3 max-w-3xl leading-relaxed text-neutral-300">
-			Real-time bus waiting times for Zaragoza, built on the city&apos;s open transport data. Free
-			on the App Store — home screen, map, favorites, and Live Activities in one place.
-		</p>
-		<div class="mt-6 flex flex-wrap items-center gap-3">
-			<a
-				href="https://apps.apple.com/es/app/ebrobus/id6757496090"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center gap-2 rounded-md border border-cyan-500/60 bg-cyan-950/40 px-4 py-2 text-sm text-cyan-300 transition hover:border-cyan-400 hover:text-cyan-200"
-			>
-				<img src="/icons/apple.svg" alt="" width="14" height="14" class="invert" />
-				App Store
-			</a>
-				<a
-					href="/ebro-bus"
-					class="inline-flex items-center rounded-md border border-neutral-700 px-4 py-2 text-sm text-neutral-100 transition hover:border-cyan-400 hover:text-cyan-300"
-				>
-					Learn more
-				</a>
-				<a
-					href="/ebro-bus#privacy"
-					class="inline-flex items-center rounded-md border border-neutral-700 px-4 py-2 text-sm text-neutral-100 transition hover:border-cyan-400 hover:text-cyan-300"
-				>
-					Privacy Policy
-				</a>
-			</div>
-		</article>
+	<div class="mt-8 flex flex-col gap-8">
+		{
+			projects.map((project) => (
+				<article class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 md:p-8">
+					<h3 class="text-lg font-semibold text-white md:text-xl">{project.title}</h3>
+					<p class="mt-3 max-w-3xl leading-relaxed text-neutral-300">{project.description}</p>
+					<div class="mt-6 flex flex-wrap items-center gap-3">
+						{project.links.map((link) => (
+							<a
+								href={link.href}
+								class:list={[
+									linkBase,
+									link.variant === 'primary'
+										? 'gap-2 border-cyan-500/60 bg-cyan-950/40 text-cyan-300 hover:text-cyan-200'
+										: 'border-neutral-700 text-neutral-100 hover:text-cyan-300'
+								]}
+								{...(link.external
+									? { target: '_blank', rel: 'noopener noreferrer' }
+									: {})}
+							>
+								{link.icon ? (
+									<img src={link.icon} alt="" width="14" height="14" class="invert" />
+								) : null}
+								{link.label}
+							</a>
+						))}
+					</div>
+				</article>
+			))
+		}
 	</div>
 </section>
