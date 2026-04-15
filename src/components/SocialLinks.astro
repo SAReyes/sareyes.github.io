@@ -1,10 +1,11 @@
 ---
 const GITHUB_URL = 'https://github.com/SAReyes';
 const TWITTER_URL = 'https://twitter.com/SAReyes_';
+const KOFI_URL = 'https://ko-fi.com/areyes';
 
 interface Props {
 	variant?: 'button' | 'inline';
-	/** 'short' shows GitHub / Twitter; 'handles' shows github.com/... style URLs */
+	/** 'short' shows GitHub / Twitter / Ko-fi; 'handles' shows site-style URLs */
 	labelStyle?: 'short' | 'handles';
 	class?: string;
 }
@@ -38,5 +39,13 @@ const inlineClass =
 		class:list={[variant === 'button' ? buttonBaseClass : inlineClass]}
 	>
 		{labelStyle === 'short' ? 'Twitter' : 'twitter.com/SAReyes_'}
+	</a>
+	<a
+		href={KOFI_URL}
+		target="_blank"
+		rel="noopener noreferrer"
+		class:list={[variant === 'button' ? buttonBaseClass : inlineClass]}
+	>
+		{labelStyle === 'short' ? 'Ko-fi' : 'ko-fi.com/areyes'}
 	</a>
 </div>
